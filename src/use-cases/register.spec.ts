@@ -55,7 +55,13 @@ describe('Register User Case', async () => {
 
     const email = 'johndoe@email.com'
 
-    expect(() =>
+    await registerUseCase.execute({
+      name: 'John Doe',
+      email,
+      password: '123456',
+    })
+
+    await expect(() =>
       registerUseCase.execute({
         name: 'John Doe',
         email,
